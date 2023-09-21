@@ -2,25 +2,18 @@ package main
 
 import (
 	"fmt"
+	"os"
 
-	"github.com/cli/go-gh/v2/pkg/api"
+	"github.com/arunsathiya/gh-ssh-import/tui"
+	tea "github.com/charmbracelet/bubbletea"
 )
 
 func main() {
-	fmt.Println("hi world, this is the gh-ssh-import extension!")
-	client, err := api.DefaultRESTClient()
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	response := struct {Login string}{}
-	err = client.Get("user", &response)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Printf("running as %s\n", response.Login)
-}
+	p := tea.NewProgram(tui.NewModel())
 
-// For more examples of using go-gh, see:
-// https://github.com/cli/go-gh/blob/trunk/example_gh_test.go
+	err := p.Start()
+	if err != nil {
+		fmt.Println("Error running program:", err)
+		os.Exit(1)
+	}
+}
