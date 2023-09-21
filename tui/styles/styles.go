@@ -33,7 +33,7 @@ func DefaultStyles() (s Styles) {
 		Foreground(lipgloss.AdaptiveColor{Light: "#A49FA5", Dark: "#777777"})
 
 	s.SelectedTitle = lipgloss.NewStyle().
-		PaddingLeft(2).
+		PaddingLeft(1).
 		Foreground(lipgloss.AdaptiveColor{Light: "#EE6FF8", Dark: "#EE6FF8"})
 
 	s.SelectedDesc = lipgloss.NewStyle().
