@@ -1,6 +1,6 @@
 module github.com/arunsathiya/gh-ssh-import
 
-go 1.21.1
+go 1.21
 
 require github.com/charmbracelet/lipgloss v0.7.1
 
